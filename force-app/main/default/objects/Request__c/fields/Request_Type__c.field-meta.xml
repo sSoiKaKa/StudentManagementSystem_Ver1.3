@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Request_Type__c</fullName>
+    <externalId>false</externalId>
+    <label>Request Type</label>
+    <required>true</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Request</fullName>
+                <default>false</default>
+                <label>Request</label>
+            </value>
+            <value>
+                <fullName>Request &amp; Issue Written Confirmation</fullName>
+                <default>false</default>
+                <label>Request &amp; Issue Written Confirmation</label>
+            </value>
+            <value>
+                <fullName>Support Email, LMS Accounts</fullName>
+                <default>false</default>
+                <label>Support Email, LMS Accounts</label>
+            </value>
+            <value>
+                <fullName>Postpone the Exam, Register for Additional Exam</fullName>
+                <default>false</default>
+                <label>Postpone the Exam, Register for Additional Exam</label>
+            </value>
+            <value>
+                <fullName>Score Review</fullName>
+                <default>false</default>
+                <label>Score Review</label>
+            </value>
+            <value>
+                <fullName>Take Studying Break</fullName>
+                <default>false</default>
+                <label>Take Studying Break</label>
+            </value>
+            <value>
+                <fullName>Return to Study</fullName>
+                <default>false</default>
+                <label>Return to Study</label>
+            </value>
+            <value>
+                <fullName>Defer Paying Tuition Fee</fullName>
+                <default>false</default>
+                <label>Defer Paying Tuition Fee</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

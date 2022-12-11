@@ -1,0 +1,148 @@
+<!--
+  @description       : 
+  @author            : Tuan Tran
+  @group             : 
+  @last modified on  : 12-04-2022
+  @last modified by  : Tuan Tran
+-->
+<aura:component
+  implements="flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickActionWithoutHeader,lightning:actionOverride"
+  access="global"
+  controller="Request_NewRequestController"
+>
+  <!-- <aura:html tag="style" aura:id="newModalStyle">
+    .slds-modal__container { min-width: 80%; height: 800px; outline:none;}
+    .slds-modal { outline:none; min-height: 800px;} slds-modal__content {
+    min-height: 80%; box-shadow: none!important;}
+    .slds-modal__content.slds-p-aroundmedium{background-color: transparent
+    important; display: contents;}
+    .slds-button__icon.slds-button__icon_large.slds-button_icon-inverse{color:transparent
+    important;}
+    .slds-button.slds-button_icon.slds-modal__close.closeIcon.slds-button_icon-bare.slds-button_icon-inverse{display:none;}
+    .quick-actions-panel.slds-modal__content.slds-p-aroundmedium { display:
+    contents; }
+  </aura:html> -->
+
+  <aura:attribute name="isModalOpen" type="Boolean" default="true" />
+  <aura:attribute name="isStudentAppInvoked" type="Boolean" default="false" />
+
+  <aura:attribute name="pageReference" type="Object" />
+  <aura:attribute name="studentInfo" type="Object" />
+  <aura:attribute name="newRequestFields" type="Object" />
+  <aura:attribute name="newRequestRecord" type="Object" />
+  <aura:attribute name="newRequestError" type="String" />
+  <aura:attribute name="requestType" type="String" />
+  <aura:attribute name="requestHeader" type="String" />
+  <aura:attribute name="lsVisibleFields" type="List" default="[]" />
+  <aura:attribute name="lsVisibleFieldsWHeader" type="List" default="[]" />
+  <aura:handler name="init" value="{!this}" action="{!c.init}" />
+  <aura:handler
+    name="change"
+    value="{!v.requestHeader}"
+    action="{!c.onRequestHeaderChanged}"
+  />
+  <lightning:navigation aura:id="navService" />
+  <force:recordData
+    aura:id="requestRecordCreator"
+    fields="Request_Type__c, Request_Header__c, Student__c"
+    targetRecord="{!v.newRequestRecord}"
+    targetFields="{!v.newRequestFields}"
+    targetError="{!v.newRequestError}"
+  />
+  <div>
+    <section
+      role="dialog"
+      tabindex="-1"
+      aria-modal="true"
+      class="{! if(v.isModalOpen, 'slds-modal slds-fade-in-open ', 'slds-modal ')}"
+      aura:id="newModal"
+    >
+      <div class="slds-modal__container slds-bottom large">
+        <header class="slds-modal__header">
+          <button
+            class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
+            title="Close"
+            onclick="{!c.handleExit}"
+          >
+            <lightning:icon
+              iconName="utility:close"
+              alternativeText="Close!"
+              title="Close"
+              variant="inverse"
+              size="small"
+            />
+            <span class="slds-assistive-text">Close</span>
+          </button>
+          <div class="slds-text-heading_medium">New Request</div>
+        </header>
+        <div class="slds-modal__content slds-p-around_medium">
+          <lightning:card
+            iconName="action:new_contact"
+            title="Create New Request"
+          >
+            <div class="slds-m-around_large">
+              <lightning:recordEditForm
+                onload="{!c.onRecordLoad}"
+                onsuccess="{!c.onCreateSuccess}"
+                onerror="{!c.onCreateError}"
+                aura:id="recordEditForm"
+                objectApiName="Request__c"
+              >
+                <div class="slds-grid slds-wrap slds-form_stacked slds-form">
+                  <lightning:inputField
+                    fieldName="Student__c"
+                    value="{!v.studentInfo.Id}"
+                    disabled="true"
+                  />
+                  <lightning:input
+                    label="Student Name"
+                    value="{!v.studentInfo.Student_Name__c}"
+                    disabled="true"
+                  />
+                  <lightning:inputField
+                    fieldName="Request_Type__c"
+                    value="{!v.newRequestFields.Request_Type__c}"
+                  />
+                </div>
+                <div class="slds-grid slds-wrap slds-form_stacked slds-form">
+                  <lightning:inputField
+                    fieldName="Request_Header__c"
+                    value="{!v.newRequestFields.Request_Header__c}"
+                  />
+                </div>
+              </lightning:recordEditForm>
+            </div>
+          </lightning:card>
+        </div>
+        <footer class="slds-modal__footer">
+          <lightning:buttonGroup class="slds-button-group-row">
+            <div class="slds-button-group-item">
+              <lightning:button
+                class="slds-theme_neutral"
+                iconPosition="left"
+                variant="neutral"
+                type="button"
+                label="Cancel"
+                onclick="{!c.handleExit}"
+              ></lightning:button>
+            </div>
+            <div class="slds-button-group-item">
+              <lightning:button
+                class="slds-theme_brand"
+                iconPosition="left"
+                variant="brand"
+                type="button"
+                label="Continue"
+                onclick="{!c.onContinue}"
+              ></lightning:button>
+            </div>
+          </lightning:buttonGroup>
+        </footer>
+      </div>
+    </section>
+  </div>
+  <div
+    aura:id="newBackdropModal"
+    class="{! if(v.isModalOpen, 'slds-backdrop slds-backdrop_open', 'slds-backdrop')}"
+  ></div>
+</aura:component>

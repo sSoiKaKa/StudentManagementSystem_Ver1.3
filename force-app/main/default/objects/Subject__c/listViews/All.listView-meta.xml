@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All</fullName>
+    <columns>NAME</columns>
+    <columns>Semester__c</columns>
+    <columns>Subject_Name__c</columns>
+    <columns>Faculty_Name__c</columns>
+    <columns>Number_of_Credits__c</columns>
+    <columns>Is_Optional__c</columns>
+    <columns>Parallel_Subject_Name__c</columns>
+    <columns>Prerequisite_Subject_Name__c</columns>
+    <filterScope>Everything</filterScope>
+    <label>All</label>
+</ListView>

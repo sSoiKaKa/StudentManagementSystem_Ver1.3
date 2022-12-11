@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Request_Status_Path</fullName>
+    <active>true</active>
+    <label>Request Status Path</label>
+    <picklistValues>
+        <picklist>Issuance_type__c</picklist>
+        <values>
+            <fullName>Free</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Paid</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Reason__c</picklist>
+        <values>
+            <fullName>Applying for a level transfer due to poor academics</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Being forced to drop out of school due to disciplinary violations</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Being forced to drop out of school due to poor academic performance</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Being forced to drop out of school for not studying</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Change information</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Dead</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Dropping out of school due to overdue or dropping out by myself</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Lost%2FBroken card</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Personal wish</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Studying abroad</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>University Transfer</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Request_Header__c</picklist>
+        <values>
+            <fullName>Academic Record Transcript Issuance</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Academic Year Transcript Issuance</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Additional Exam Registration</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Application for Deferred Graduation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Application for Graduation Recognition</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Application for Study Promotion Scholarship</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Exam Postponement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Handling the Procedure for University Dropout</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Password Reset for LMS account</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Password Reset for Office 365 Account</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Score Review Request</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Second Program Registration</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Semester Transcript Issuance</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Student Card Re-issuance</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Student Confirmation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Student Loan Confirmation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Study Return Request</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Studying Break Request</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Training Point Transcript Issuance</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tuition Fee Payment Deferral</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Written Confirmation for Military Service Postponement</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Request_Type__c</picklist>
+        <values>
+            <fullName>Defer Paying Tuition Fee</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Postpone the Exam%2C Register for Additional Exam</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Request</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Request %26 Issue Written Confirmation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Return to Study</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Score Review</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Support Email%2C LMS Accounts</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Take Studying Break</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Status__c</picklist>
+        <values>
+            <fullName>Approved</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Submitted</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Unsubmitted</fullName>
+            <default>true</default>
+        </values>
+    </picklistValues>
+</RecordType>

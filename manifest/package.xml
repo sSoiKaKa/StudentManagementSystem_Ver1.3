@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+	<types>
+		<members>Request_NewRequestController</members>
+		<members>StudentApp_StudentController</members>
+		<name>ApexClass</name>
+	</types>
+	<types>
+		<members>Notification</members>
+		<name>ApexTrigger</name>
+	</types>
+	<types>
+		<members>Acitvity_Class__c</members>
+		<members>Education_Program_Subject__c</members>
+		<members>Education_Program__c</members>
+		<members>Faculty__c</members>
+		<members>Major_Subject__c</members>
+		<members>Major__c</members>
+		<members>Notification__c</members>
+		<members>Request__c</members>
+		<members>Student</members>
+		<members>Student_Card__c</members>
+		<members>Student__c</members>
+		<members>Subject_Class__c</members>
+		<members>Subject_Registration__c</members>
+		<members>Subject__c</members>
+		<members>Teacher_Major__c</members>
+		<members>Teacher__c</members>
+		<members>University__c</members>
+		<name>CustomTab</name>
+	</types>
+	<types>
+		<members>Create_New_Request</members>
+		<members>Notification_Record_Page</members>
+		<members>Notification_Record_Page1</members>
+		<members>Student</members>
+		<members>Student1</members>
+		<members>Student_Management_System_UtilityBar</members>
+		<members>Student_Profile</members>
+		<members>Student_Record_Page</members>
+		<members>Student_Support_System_UtilityBar</members>
+		<members>User_Record_Page</members>
+		<name>FlexiPage</name>
+	</types>
+	<types>
+		<members>Acitvity_Class__c-Acitvity Class Layout</members>
+		<members>Education_Program_Subject__c-Education Program Subject Layout</members>
+		<members>Education_Program__c-Education Program Layout</members>
+		<members>Faculty__c-Faculty Layout</members>
+		<members>Major_Subject__c-Major Subject Layout</members>
+		<members>Major__c-Major Layout</members>
+		<members>Notification__c-Notification Layout</members>
+		<members>Notification__c-Notifications Layout for User</members>
+		<members>Request__c-Request Layout</members>
+		<members>Student_Card__c-Student Card Layout</members>
+		<members>Student__c-Student Layout</members>
+		<members>Student__c-User Layout</members>
+		<members>Subject_Class__c-Subject Class Layout</members>
+		<members>Subject_Registration__c-Subject Registration Layout</members>
+		<members>Subject__c-Subject Layout</members>
+		<members>Teacher_Major__c-Teacher Major Layout</members>
+		<members>Teacher__c-Teacher Layout</members>
+		<members>University__c-University Layout</members>
+		<name>Layout</name>
+	</types>
+	<types>
+		<members>Reality Admin</members>
+		<members>Student</members>
+		<name>Profile</name>
+	</types>
+	<types>
+		<members>Request__c.Get_Transcript</members>
+		<name>QuickAction</name>
+	</types>
+	<version>55.0</version>
+</Package>

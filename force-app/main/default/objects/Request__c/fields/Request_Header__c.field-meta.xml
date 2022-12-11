@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Request_Header__c</fullName>
+    <externalId>false</externalId>
+    <label>Request Header</label>
+    <required>true</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Request_Type__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Student Card Re-issuance</fullName>
+                <default>false</default>
+                <label>Student Card Re-issuance</label>
+            </value>
+            <value>
+                <fullName>Application for Graduation Recognition</fullName>
+                <default>false</default>
+                <label>Application for Graduation Recognition</label>
+            </value>
+            <value>
+                <fullName>Application for Deferred Graduation</fullName>
+                <default>false</default>
+                <label>Application for Deferred Graduation</label>
+            </value>
+            <value>
+                <fullName>Application for Study Promotion Scholarship</fullName>
+                <default>false</default>
+                <label>Application for Study Promotion Scholarship</label>
+            </value>
+            <value>
+                <fullName>Second Program Registration</fullName>
+                <default>false</default>
+                <label>Second Program Registration</label>
+            </value>
+            <value>
+                <fullName>Handling the Procedure for University Dropout</fullName>
+                <default>false</default>
+                <label>Handling the Procedure for University Dropout</label>
+            </value>
+            <value>
+                <fullName>Semester Transcript Issuance</fullName>
+                <default>false</default>
+                <label>Semester Transcript Issuance</label>
+            </value>
+            <value>
+                <fullName>Academic Year Transcript Issuance</fullName>
+                <default>false</default>
+                <label>Academic Year Transcript Issuance</label>
+            </value>
+            <value>
+                <fullName>Academic Record Transcript Issuance</fullName>
+                <default>false</default>
+                <label>Academic Record Transcript Issuance</label>
+            </value>
+            <value>
+                <fullName>Training Point Transcript Issuance</fullName>
+                <default>false</default>
+                <label>Training Point Transcript Issuance</label>
+            </value>
+            <value>
+                <fullName>Written Confirmation for Military Service Postponement</fullName>
+                <default>false</default>
+                <label>Written Confirmation for Military Service Postponement</label>
+            </value>
+            <value>
+                <fullName>Student Confirmation</fullName>
+                <default>false</default>
+                <label>Student Confirmation</label>
+            </value>
+            <value>
+                <fullName>Student Loan Confirmation</fullName>
+                <default>false</default>
+                <label>Student Loan Confirmation</label>
+            </value>
+            <value>
+                <fullName>Password Reset for Office 365 Account</fullName>
+                <default>false</default>
+                <label>Password Reset for Office 365 Account</label>
+            </value>
+            <value>
+                <fullName>Password Reset for LMS account</fullName>
+                <default>false</default>
+                <label>Password Reset for LMS account</label>
+            </value>
+            <value>
+                <fullName>Exam Postponement</fullName>
+                <default>false</default>
+                <label>Exam Postponement</label>
+            </value>
+            <value>
+                <fullName>Additional Exam Registration</fullName>
+                <default>false</default>
+                <label>Additional Exam Registration</label>
+            </value>
+            <value>
+                <fullName>Studying Break Request</fullName>
+                <default>false</default>
+                <label>Studying Break Request</label>
+            </value>
+            <value>
+                <fullName>Study Return Request</fullName>
+                <default>false</default>
+                <label>Study Return Request</label>
+            </value>
+            <value>
+                <fullName>Tuition Fee Payment Deferral</fullName>
+                <default>false</default>
+                <label>Tuition Fee Payment Deferral</label>
+            </value>
+            <value>
+                <fullName>Score Review Request</fullName>
+                <default>false</default>
+                <label>Score Review Request</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Request</controllingFieldValue>
+            <valueName>Student Card Re-issuance</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Request</controllingFieldValue>
+            <valueName>Application for Graduation Recognition</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Request</controllingFieldValue>
+            <valueName>Application for Deferred Graduation</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Request</controllingFieldValue>
+            <valueName>Application for Study Promotion Scholarship</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Request</controllingFieldValue>
+            <valueName>Second Program Registration</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Request</controllingFieldValue>
+            <valueName>Handling the Procedure for University Dropout</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Request &amp; Issue Written Confirmation</controllingFieldValue>
+            <valueName>Semester Transcript Issuance</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Request &amp; Issue Written Confirmation</controllingFieldValue>
+            <valueName>Academic Year Transcript Issuance</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Request &amp; Issue Written Confirmation</controllingFieldValue>
+            <valueName>Academic Record Transcript Issuance</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Request &amp; Issue Written Confirmation</controllingFieldValue>
+            <valueName>Training Point Transcript Issuance</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Request &amp; Issue Written Confirmation</controllingFieldValue>
+            <valueName>Written Confirmation for Military Service Postponement</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Request &amp; Issue Written Confirmation</controllingFieldValue>
+            <valueName>Student Confirmation</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Request &amp; Issue Written Confirmation</controllingFieldValue>
+            <valueName>Student Loan Confirmation</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Support Email, LMS Accounts</controllingFieldValue>
+            <valueName>Password Reset for Office 365 Account</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Support Email, LMS Accounts</controllingFieldValue>
+            <valueName>Password Reset for LMS account</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Postpone the Exam, Register for Additional Exam</controllingFieldValue>
+            <valueName>Exam Postponement</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Postpone the Exam, Register for Additional Exam</controllingFieldValue>
+            <valueName>Additional Exam Registration</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Score Review</controllingFieldValue>
+            <valueName>Score Review Request</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Take Studying Break</controllingFieldValue>
+            <valueName>Studying Break Request</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Return to Study</controllingFieldValue>
+            <valueName>Study Return Request</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Defer Paying Tuition Fee</controllingFieldValue>
+            <valueName>Tuition Fee Payment Deferral</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

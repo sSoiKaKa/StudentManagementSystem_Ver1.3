@@ -1,0 +1,164 @@
+<!--
+  @description       : 
+  @author            : Tuan Tran
+  @group             : 
+  @last modified on  : 12-05-2022
+  @last modified by  : Tuan Tran
+-->
+<aura:component
+  implements="flexipage:availableForAllPageTypes,force:hasRecordId"
+  access="global"
+  controller="StudentApp_StudentController"
+>
+  <aura:attribute name="studentInfo" type="Object" />
+  <aura:attribute name="requests" type="List" default="[]" />
+
+  <aura:attribute name="isModalOpen" type="Boolean" default="false" />
+  <aura:handler name="init" value="{!this}" action="{!c.init}" />
+
+  <!--Pagination-->
+  <aura:attribute name="paginationList" type="List" default="[]" />
+  <aura:attribute name="pageSize" type="Integer" default="5" />
+  <aura:attribute name="totalSize" type="Integer" />
+  <aura:attribute name="start" type="Integer" />
+  <aura:attribute name="end" type="Integer" />
+
+  <aura:if isTrue="{!v.isModalOpen}">
+    <c:SRS_NewRequestCmp isStudentAppInvoked="true"> </c:SRS_NewRequestCmp>
+  </aura:if>
+  <lightning:card
+    title="Your Requests"
+    iconName="standard:contact"
+    variant="base"
+    class="slds-card_boundary"
+  >
+    <aura:set attribute="actions">
+      <lightning:button
+        class="slds-theme_neutral"
+        variant="neutral"
+        label="New"
+        onclick="{!c.openNewModal}"
+      >
+      </lightning:button>
+    </aura:set>
+    <div class="slds-m-around_small">
+      <div class="slds-p-bottom_xx-small">
+        <table>
+          <tr>
+            <td style="width: 5%">Show</td>
+            <td style="width: 7%">
+              <ui:inputSelect aura:id="records" change="{!c.onSelectChange}">
+                <ui:inputSelectOption text="5" value="5" />
+                <ui:inputSelectOption text="10" value="10" />
+                <ui:inputSelectOption text="20" value="20" />
+                <ui:inputSelectOption text="30" value="30" />
+              </ui:inputSelect>
+            </td>
+            <td>Entries</td>
+            <!-- <td style="width: 7%">Search</td>
+            <td style="width: 25%">
+              <ui:inputText
+                aura:id="input1"
+                change="{!c.searchKeyChange}"
+                required="true"
+              ></ui:inputText>
+            </td> -->
+          </tr>
+        </table>
+      </div>
+
+      <table
+        class="slds-table slds-no-row-hover slds-table_bordered slds-table_col-bordered"
+      >
+        <thead>
+          <tr>
+            <th>
+              <div class="slds-truncate" title="Subject">Id</div>
+            </th>
+            <th>
+              <div class="slds-truncate" title="Class">Request Title</div>
+            </th>
+            <th>
+              <div class="slds-truncate" title="Homework">Status</div>
+            </th>
+            <th>
+              <div class="slds-truncate" title="Mid-Term Exam">
+                Submitted Date
+              </div>
+            </th>
+            <th>
+              <div class="slds-truncate" title="Final Exam">Received Date</div>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <aura:iteration items="{!v.paginationList}" var="item">
+            <tr class="slds-hint-parent">
+              <td>
+                <div style="font-size: 0.8125rem">
+                  <p>
+                    <a href="{! ('/' + item.Id) }" target="_blank"
+                      >{!item.Name}</a
+                    >
+                  </p>
+                </div>
+              </td>
+              <td>
+                <div style="font-size: 0.8125rem">
+                  <p>
+                    <lightning:formattedText
+                      value="{!item.Request_Header__c}"
+                    />
+                  </p>
+                </div>
+              </td>
+              <td>
+                <div style="font-size: 0.8125rem">
+                  <p>
+                    <lightning:formattedText value="{!item.Status__c}" />
+                  </p>
+                </div>
+              </td>
+              <td>
+                <div style="font-size: 0.8125rem">
+                  <p>
+                    <lightning:formattedText
+                      value="{!item.Submitting_Date__c}"
+                    />
+                  </p>
+                </div>
+              </td>
+              <td>
+                <div style="font-size: 0.8125rem">
+                  <p></p>
+                </div>
+              </td>
+            </tr>
+          </aura:iteration>
+          <div class="slds-p-top_xx-small">
+            <lightning:button
+              label="First"
+              disabled="{!v.start == 0}"
+              onclick="{!c.first}"
+            />
+            <lightning:button
+              label="Previous"
+              disabled="{!v.start == 0}"
+              onclick="{!c.previous}"
+            />
+            <lightning:button
+              label="Next"
+              disabled="{!v.end >= v.totalSize}"
+              onclick="{!c.next}"
+            />
+            <lightning:button
+              label="Last"
+              disabled="{!v.end >= v.totalSize}"
+              onclick="{!c.last}"
+            />
+          </div>
+        </tbody>
+      </table>
+    </div>
+  </lightning:card>
+</aura:component>

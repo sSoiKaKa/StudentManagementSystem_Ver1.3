@@ -1,0 +1,188 @@
+<!--
+  @description       : 
+  @author            : Tuan Tran
+  @group             : 
+  @last modified on  : 11-27-2022
+  @last modified by  : Tuan Tran
+-->
+<aura:component
+  implements="flexipage:availableForAllPageTypes,force:hasRecordId"
+  access="global"
+  controller="Request_NewRequestController"
+>
+  <aura:attribute name="studentInfo" type="Object" />
+
+  <aura:attribute name="requestType" type="String" />
+  <aura:attribute name="requestHeader" type="String" />
+  <aura:attribute name="requestRecord" type="Object" />
+  <aura:attribute name="requestFields" type="Object" />
+  <aura:attribute name="requestError" type="String" />
+  <aura:attribute name="cardTitle" type="String" default="Data" />
+  <aura:attribute name="semesterTranscriptData" type="List" default="[]" />
+
+  <aura:handler name="init" value="{!this}" action="{!c.init}" />
+  <aura:method name="updateStudentInformation" action="{!c.getStudentInfo}">
+    <aura:attribute name="studentInfoFromParent" type="Object" />
+  </aura:method>
+  <aura:method name="updateRequestRecord" action="{!c.updateRequestRecord}">
+    <aura:attribute name="requestHeader" type="String" />
+    <aura:attribute name="requestType" type="String" />
+    <aura:attribute name="requestFields" type="Object" />
+  </aura:method>
+  <aura:method
+    name="retrieveSemesterTranscriptData"
+    action="{!c.retrieveSemesterTranscriptData}"
+  >
+    <aura:attribute name="term" type="Decimal" />
+  </aura:method>
+  <lightning:card
+    title="{!v.cardTitle}"
+    iconName="standard:contact"
+    variant="base"
+    class="slds-card_boundary"
+  >
+    <!--CARD INFORMATION-->
+    <aura:if
+      isTrue="{! v.requestFields.Request_Header__c == 'Student Card Re-issuance'}"
+    >
+      <div class="slds-p-vertical_xx-small">
+        <div class="slds-grid slds-gutters">
+          <div class="slds-col slds-size--1-of-2">
+            <div class="slds-m-around_medium">
+              <lightning:input
+                readonly="true"
+                value="{!v.studentInfo.Student_Cards__r[0].Id_Input__c}"
+                label="Card Id"
+              />
+              <lightning:input
+                readonly="true"
+                value="{!v.studentInfo.Date_Of_Birth__c}"
+                label="Date of Birth"
+              />
+              <lightning:input
+                readonly="true"
+                value="{!v.studentInfo.Student_Cards__r[0].Admission_Year__c}"
+                label="Admission Year"
+              />
+            </div>
+          </div>
+          <div class="slds-col slds-size--1-of-2">
+            <div class="slds-m-around_medium">
+              <lightning:input
+                readonly="true"
+                value="{!v.studentInfo.Student_Name__c}"
+                label="Name"
+              />
+              <lightning:input
+                readonly="true"
+                value="{!v.studentInfo.Acitvity_Class__r.Class_Name__c}"
+                label="Class"
+              />
+              <lightning:input
+                readonly="true"
+                value="{!v.studentInfo.Faculty__r.Faculty_Name__c}"
+                label="Faculty"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </aura:if>
+    <!--SEMESTER TRANSCRIPT-->
+    <aura:if
+      isTrue="{! v.requestFields.Request_Header__c == 'Semester Transcript Issuance'}"
+    >
+      <div class="slds-m-around_small">
+        <table
+          class="slds-table slds-no-row-hover slds-table_bordered slds-table_col-bordered"
+        >
+          <thead>
+            <tr>
+              <th>
+                <div class="slds-truncate" title="Subject">Subject</div>
+              </th>
+              <th>
+                <div class="slds-truncate" title="Class">Class</div>
+              </th>
+              <th>
+                <div class="slds-truncate" title="Homework">Homework</div>
+              </th>
+              <th>
+                <div class="slds-truncate" title="Mid-Term Exam">
+                  Mid-Term Exam
+                </div>
+              </th>
+              <th>
+                <div class="slds-truncate" title="Final Exam">Final Exam</div>
+              </th>
+              <th>
+                <div class="slds-truncate" title="Overall">Overall</div>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <aura:iteration items="{!v.semesterTranscriptData}" var="item">
+              <tr class="slds-hint-parent">
+                <td>
+                  <div style="font-size: 0.8125rem">
+                    <p>
+                      <lightning:formattedText value="{!item.subjectName}" />
+                    </p>
+                  </div>
+                </td>
+                <td>
+                  <div style="font-size: 0.8125rem">
+                    <p>
+                      <lightning:formattedText value="{!item.className}" />
+                    </p>
+                  </div>
+                </td>
+                <td>
+                  <div style="font-size: 0.8125rem">
+                    <p>
+                      <lightning:formattedNumber
+                        value="{!item.homeworkScore}"
+                      />
+                    </p>
+                  </div>
+                </td>
+                <td>
+                  <div style="font-size: 0.8125rem">
+                    <p>
+                      <lightning:formattedNumber value="{!item.midTermScore}" />
+                    </p>
+                  </div>
+                </td>
+                <td>
+                  <div style="font-size: 0.8125rem">
+                    <p>
+                      <lightning:formattedNumber
+                        value="{!item.finalExamScore}"
+                      />
+                    </p>
+                  </div>
+                </td>
+                <td>
+                  <div style="font-size: 0.8125rem">
+                    <p>
+                      <lightning:formattedNumber value="{!item.overallScore}" />
+                    </p>
+                  </div>
+                </td>
+              </tr>
+            </aura:iteration>
+            <aura:if isTrue="{! (v.semesterTranscriptData.length==0) }">
+              <tr>
+                <td colspan="7" style="text-align: center">
+                  <div style="font-size: 0.8125rem">
+                    <p>No data found.</p>
+                  </div>
+                </td>
+              </tr>
+            </aura:if>
+          </tbody>
+        </table>
+      </div>
+    </aura:if>
+  </lightning:card>
+</aura:component>

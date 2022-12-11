@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Faculty_Name__c</fullName>
+    <externalId>false</externalId>
+    <formula>Faculty__r.Faculty_Name__c</formula>
+    <label>Faculty</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>
