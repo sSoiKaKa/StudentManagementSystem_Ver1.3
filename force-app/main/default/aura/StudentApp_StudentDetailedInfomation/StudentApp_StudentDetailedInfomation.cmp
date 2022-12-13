@@ -2,7 +2,7 @@
   @description       : 
   @author            : Tuan Tran
   @group             : 
-  @last modified on  : 12-07-2022
+  @last modified on  : 12-11-2022
   @last modified by  : Tuan Tran
 -->
 <aura:component
@@ -14,7 +14,7 @@
   <aura:handler name="init" value="{!this}" action="{!c.init}" />
   <lightning:card
     title="Your Profile"
-    iconName="standard:contact"
+    iconName="standard:user"
     variant="base"
     class="slds-card_boundary"
   >

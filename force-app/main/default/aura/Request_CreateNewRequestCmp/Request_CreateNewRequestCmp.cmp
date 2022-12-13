@@ -2,7 +2,7 @@
   @description       : 
   @author            : Tuan Tran
   @group             : 
-  @last modified on  : 11-27-2022
+  @last modified on  : 12-13-2022
   @last modified by  : Tuan Tran
 -->
 <aura:component
@@ -21,6 +21,7 @@
   <aura:attribute name="requestType" type="String" />
   <aura:attribute name="requestHeader" type="String" />
   <!--FIELD VALUES-->
+  <aura:attribute name="status" type="String" />
   <aura:attribute name="reason" type="String" />
   <aura:attribute name="academicTerm" type="String" />
   <aura:attribute name="faculty" type="String" />
@@ -89,7 +90,7 @@
   <force:recordData
     aura:id="requestRecordCreator"
     recordId="{!v.recordId}"
-    fields="Request_Type__c, Request_Header__c, Student__c, Is_Submitted__c, Academic_Term__c"
+    fields="Request_Type__c, Request_Header__c, Student__c, Is_Submitted__c, Academic_Term__c, Status__c"
     targetRecord="{!v.requestRecord}"
     targetFields="{!v.requestFields}"
     targetError="{!v.requestError}"
@@ -128,6 +129,9 @@
               disabled="true"
             />
             <lightning:outputField fieldName="Status__c" />
+            <aura:if isTrue="{!v.status == 'Rejected'}">
+              <lightning:outputField fieldName="Reject_Reason__c"/>
+            </aura:if>
             <lightning:inputField
               fieldName="Is_Submitted__c"
               aura:id="submittedField"

@@ -15,7 +15,7 @@
   <aura:handler name="init" value="{!this}" action="{!c.init}" />
   <lightning:card
     title="Announcements"
-    iconName="standard:contact"
+    iconName="standard:announcement"
     variant="base"
     class="slds-card_boundary"
   >

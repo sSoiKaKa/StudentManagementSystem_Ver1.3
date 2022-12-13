@@ -7,7 +7,36 @@
                     <name>actionNames</name>
                     <valueList>
                         <valueListItems>
-                            <value>Request__c.Get_Transcript</value>
+                            <value>Request__c.Approve</value>
+                            <visibilityRule>
+                                <booleanFilter>1 AND 2</booleanFilter>
+                                <criteria>
+                                    <leftValue>{!$User.Profile.Name}</leftValue>
+                                    <operator>EQUAL</operator>
+                                    <rightValue>System Administrator</rightValue>
+                                </criteria>
+                                <criteria>
+                                    <leftValue>{!Record.Status__c}</leftValue>
+                                    <operator>EQUAL</operator>
+                                    <rightValue>Submitted</rightValue>
+                                </criteria>
+                            </visibilityRule>
+                        </valueListItems>
+                        <valueListItems>
+                            <value>Request__c.Reject</value>
+                            <visibilityRule>
+                                <booleanFilter>1 AND 2</booleanFilter>
+                                <criteria>
+                                    <leftValue>{!$User.Profile.Name}</leftValue>
+                                    <operator>EQUAL</operator>
+                                    <rightValue>System Administrator</rightValue>
+                                </criteria>
+                                <criteria>
+                                    <leftValue>{!Record.Status__c}</leftValue>
+                                    <operator>EQUAL</operator>
+                                    <rightValue>Submitted</rightValue>
+                                </criteria>
+                            </visibilityRule>
                         </valueListItems>
                         <valueListItems>
                             <value>PrintableView</value>

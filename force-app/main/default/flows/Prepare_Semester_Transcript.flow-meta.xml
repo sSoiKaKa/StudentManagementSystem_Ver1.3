@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>56.0</apiVersion>
+    <assignments>
+        <name>Setting_data_for_Conga_Template</name>
+        <label>Setting data for Conga Template</label>
+        <locationX>176</locationX>
+        <locationY>278</locationY>
+        <assignmentItems>
+            <assignToReference>CongaLink</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>{!CONGALINK_1}{!Get_CongaTemplateID}</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Print_Semester_Script</targetReference>
+        </connector>
+    </assignments>
+    <constants>
+        <name>Get_CongaTemplateID</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>&amp;TemplateId=0T_000EAB152800</stringValue>
+        </value>
+    </constants>
+    <environments>Default</environments>
+    <formulas>
+        <name>CONGALINK_1</name>
+        <dataType>String</dataType>
+        <expression>&quot;/apex/APXTConga4__Conga_Composer?SolMgr=1&quot;+
+&quot;&amp;serverUrl=&quot;+{!$Api.Enterprise_Server_URL_160}+
+&quot;&amp;DS7=3&amp;Id=&quot;+{!Record_Id}</expression>
+    </formulas>
+    <formulas>
+        <name>Print_Button</name>
+        <dataType>String</dataType>
+        <expression>&quot;&lt;a class=&apos;slds-button slds-button_brand&apos; href=&apos;&quot;+{!CongaLink}+&quot;&apos;&gt;Generate Document&lt;/a&gt;&quot;</expression>
+    </formulas>
+    <interviewLabel>Prepare Semester Transcript {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Prepare Semester Transcript</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>Flow</processType>
+    <recordLookups>
+        <name>Get_Request_Record</name>
+        <label>Get Request Record</label>
+        <locationX>176</locationX>
+        <locationY>158</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Setting_data_for_Conga_Template</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Record_Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Request__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <screens>
+        <name>Print_Semester_Script</name>
+        <label>Print Semester Script</label>
+        <locationX>176</locationX>
+        <locationY>398</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <fields>
+            <name>Display_text_1</name>
+            <fieldText>&lt;p style=&quot;text-align: center;&quot;&gt;{!Print_Button}&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_Request_Record</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>CongaLink</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>Record_Id</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

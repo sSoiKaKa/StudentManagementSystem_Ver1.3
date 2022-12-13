@@ -2,7 +2,7 @@
  * @description       :
  * @author            : Tuan Tran
  * @group             :
- * @last modified on  : 12-10-2022
+ * @last modified on  : 12-12-2022
  * @last modified by  : Tuan Tran
  **/
 public without sharing class StudentApp_StudentController {
@@ -102,8 +102,10 @@ public without sharing class StudentApp_StudentController {
       ];
 
       List<String> lsSubjectClass = new List<String>();
+      List<String> lsSubject = new List<String>();
       for (Subject_Registration__c sr : subjectRegistraionQueries) {
         lsSubjectClass.add(sr.Subject_Class__c);
+        lsSubject.add(sr.Subject__c);
       }
       Notification notifications = new Notification();
       List<Notification__c> lsNotificationQueried = [
@@ -124,6 +126,7 @@ public without sharing class StudentApp_StudentController {
         WHERE
           Faculty__c = :student.Faculty__c
           OR Subject_Class__c IN :lsSubjectClass
+          OR Subject__c IN :lsSubject
           OR Student__c = :student.Id
         ORDER BY CreatedDate DESC
       ];
@@ -134,7 +137,7 @@ public without sharing class StudentApp_StudentController {
       for (Notification__c noti : lsNotificationQueried) {
         if (noti.Faculty__c == student.Faculty__c) {
           facultyNotifications.add(noti);
-        } else if (lsSubjectClass.contains(noti.Subject_Class__c)) {
+        } else if (lsSubjectClass.contains(noti.Subject_Class__c) || lsSubject.contains(noti.Subject__c)) {
           classNotifications.add(noti);
         } else if (noti.Student__c == student.Id) {
           personalNotifications.add(noti);

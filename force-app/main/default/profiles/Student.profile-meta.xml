@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <Profile xmlns="http://soap.sforce.com/2006/04/metadata">
     <classAccesses>
         <apexClass>Request_NewRequestController</apexClass>
@@ -13,8 +13,7 @@
         <layout>Acitvity_Class__c-Acitvity Class Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout
-    >Education_Program_Subject__c-Education Program Subject Layout</layout>
+        <layout>Education_Program_Subject__c-Education Program Subject Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Education_Program__c-Education Program Layout</layout>

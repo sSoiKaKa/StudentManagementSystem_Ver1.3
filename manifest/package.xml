@@ -43,6 +43,10 @@
 		<name>FlexiPage</name>
 	</types>
 	<types>
+		<members>*</members>
+		<name>Flow</name>
+	</types>
+	<types>
 		<members>Acitvity_Class__c-Acitvity Class Layout</members>
 		<members>Education_Program_Subject__c-Education Program Subject Layout</members>
 		<members>Education_Program__c-Education Program Layout</members>

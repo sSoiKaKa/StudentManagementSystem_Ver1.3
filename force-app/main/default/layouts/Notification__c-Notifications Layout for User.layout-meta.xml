@@ -23,10 +23,6 @@
                 <behavior>Readonly</behavior>
                 <field>Body__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Body_PlainText__c</field>
-            </layoutItems>
         </layoutColumns>
         <style>OneColumn</style>
     </layoutSections>

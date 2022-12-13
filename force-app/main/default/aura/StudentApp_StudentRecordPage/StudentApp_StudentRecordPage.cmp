@@ -2,7 +2,7 @@
   @description       : 
   @author            : Tuan Tran
   @group             : 
-  @last modified on  : 12-05-2022
+  @last modified on  : 12-12-2022
   @last modified by  : Tuan Tran
 -->
 <aura:component
@@ -24,7 +24,7 @@
   <aura:attribute name="end" type="Integer" />
 
   <aura:if isTrue="{!v.isModalOpen}">
-    <c:SRS_NewRequestCmp isStudentAppInvoked="true"> </c:SRS_NewRequestCmp>
+    <c:SRS_NewRequestCmp isStudentAppInvoked="true" isModalOpen="{!v.isModalOpen}"> </c:SRS_NewRequestCmp>
   </aura:if>
   <lightning:card
     title="Your Requests"

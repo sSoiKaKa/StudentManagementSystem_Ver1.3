@@ -170,7 +170,10 @@
   },
   getStudentInformation: function (cmp) {
     console.log("getStudentInformation...");
-    var action = cmp.get("c.getStudentInformation");
+    var action = cmp.get("c.getStudentInformationWId");
+    var requestId = cmp.get("v.recordId");
+    console.log('requestId: ', requestId);
+    action.setParams({requestId: requestId});
     action.setCallback(this, function (response) {
       var state = response.getState();
       console.log("state: ", state);

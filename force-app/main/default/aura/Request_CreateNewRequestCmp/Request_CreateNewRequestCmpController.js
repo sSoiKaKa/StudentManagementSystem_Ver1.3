@@ -60,6 +60,7 @@
     });
     cmp.set("v.requestHeader", requestHeader);
     cmp.set("v.requestType", requestType);
+    cmp.set("v.status", requestData.Status__c);
     helper.processDataForEachRequestHeader(cmp);
     var requestDetailInfoCmp = cmp.find("requestDetailInfo");
     requestDetailInfoCmp.updateRequestRecord(

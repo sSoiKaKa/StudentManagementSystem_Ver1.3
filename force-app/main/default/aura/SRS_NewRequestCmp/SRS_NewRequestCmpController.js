@@ -60,10 +60,11 @@
     var isStudentAppInvoked = cmp.get("v.isStudentAppInvoked");
     if (!isStudentAppInvoked) {
       cmp.find("navService").navigate(cmp.get("v.pageReference"), true);
+      cmp.set("v.isModalOpen", false);
     } else {
       cmp.set("v.isModalOpen", false);
-      var dismissActionPanel = $A.get("e.force:closeQuickAction");
-      dismissActionPanel.fire();
+      // var dismissActionPanel = $A.get("e.force:closeQuickAction");
+      // dismissActionPanel.fire();
     }
   },
   onContinue: function (cmp) {
